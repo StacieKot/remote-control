@@ -4,13 +4,13 @@ import { handleRequest } from "./handlers";
 export const startWS = () => {
   const wss = new WebSocketServer({ port: 8080 });
 
-  wss.on("connection", function connection(ws) {
+  wss.on("connection", (ws) => {
     ws.send(`Connected`);
 
-    ws.on("message", async function message(data) {
-      const [command, value1, value2] = data.toString().split(" ");
+    ws.on("message", async (data) => {
+      const [command, ...args] = data.toString().split(" ");
 
-      const response = await handleRequest(command, value1, value2);
+      const response = await handleRequest(command, ...args);
 
       if (response) {
         const wsStream = createWebSocketStream(ws, {

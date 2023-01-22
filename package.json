@@ -1,5 +1,5 @@
 {
-  "name": "crud-api",
+  "name": "ws_task",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,16 +9,8 @@
     "start:prod": "npm run build && node ./dist/index.js",
     "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\""
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/StacieKot/node-crud-api.git"
-  },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/StacieKot/node-crud-api/issues"
-  },
-  "homepage": "https://github.com/StacieKot/node-crud-api#readme",
   "devDependencies": {
     "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^5.47.1",

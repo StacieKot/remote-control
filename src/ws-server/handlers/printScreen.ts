@@ -9,12 +9,13 @@ export const makePrintScreen = async (command: string): Promise<string> => {
     await screen.highlight(region);
 
     const screenImage = await screen.grabRegion(region);
+
     const image = new Jimp({ data: screenImage.data, width: 200, height: 200 });
 
     const encodedPicture = await image.getBufferAsync(Jimp.MIME_PNG);
 
     return `${command} ${encodedPicture.toString("base64")}`;
-  } catch (err) {
-    return `${command} failed: ${err}`;
+  } catch (err: any) {
+    return `${command}_failed - ${err.message}`;
   }
 };

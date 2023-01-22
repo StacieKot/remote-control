@@ -25,8 +25,12 @@ const handlers: Record<
 
 export const handleRequest = async (
   command: string,
-  value1: string,
-  value2: string
+  value1?: string,
+  value2?: string
 ): Promise<string> => {
-  return handlers[command]?.(command, Number(value1), Number(value2));
+  try {
+    return handlers[command]?.(command, Number(value1), Number(value2));
+  } catch {
+    return `${command}_failed`;
+  }
 };
