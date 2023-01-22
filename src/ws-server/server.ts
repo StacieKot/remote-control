@@ -22,8 +22,8 @@ export const startWS = () => {
       }
     });
 
-    ws.on("error", function message() {
-      ws.send(`server error`);
+    ws.on("close", () => {
+      console.log("disconnected");
     });
   });
 };
